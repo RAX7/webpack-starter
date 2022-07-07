@@ -18,6 +18,7 @@ module.exports = merge(common, {
       logging: 'error',
     },
     hot: true,
+    watchFiles: ['src/**/*.html'],
   },
   plugins: [
     new Webpack.DefinePlugin({
