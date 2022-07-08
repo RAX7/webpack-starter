@@ -1,9 +1,9 @@
-const Webpack = require('webpack');
-const { merge } = require('webpack-merge');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const common = require('./webpack.common.js');
+import webpack from 'webpack';
+import { merge } from 'webpack-merge';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import common from './webpack.common.js';
 
-module.exports = merge(common, {
+export default merge(common, {
   mode: 'production',
   // devtool: 'source-map',
   stats: 'errors-only',
@@ -14,7 +14,7 @@ module.exports = merge(common, {
     assetModuleFilename: 'assets/[name]-[contenthash:8][ext]',
   },
   plugins: [
-    new Webpack.DefinePlugin({
+    new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new MiniCssExtractPlugin({

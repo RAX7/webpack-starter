@@ -1,15 +1,20 @@
-const Path = require('path');
-const Webpack = require('webpack');
-const { merge } = require('webpack-merge');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const StylelintPlugin = require('stylelint-webpack-plugin');
+import path from 'path';
+import url from 'url';
 
-const common = require('./webpack.common.js');
+import webpack from 'webpack';
+import { merge } from 'webpack-merge';
+import ESLintPlugin from 'eslint-webpack-plugin';
+import StylelintPlugin from 'stylelint-webpack-plugin';
 
-module.exports = merge(common, {
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import common from './webpack.common.js';
+
+export default merge(common, {
   target: 'web',
   mode: 'development',
-  devtool: 'eval-cheap-source-map',
+  devtool: 'source-map',
   output: {
     chunkFilename: 'js/[name].chunk.js',
     assetModuleFilename: 'assets/[name][ext]',
@@ -22,23 +27,23 @@ module.exports = merge(common, {
     watchFiles: ['src/**/*.html'],
   },
   plugins: [
-    new Webpack.DefinePlugin({
+    new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
     new ESLintPlugin({
       extensions: 'js',
       emitWarning: true,
-      files: Path.resolve(__dirname, '../src'),
+      files: path.resolve(__dirname, '../src'),
     }),
     new StylelintPlugin({
-      files: Path.join('src', '**/*.s?(a|c)ss'),
+      files: path.join('src', '**/*.s?(a|c)ss'),
     }),
   ],
   module: {
     rules: [
       {
         test: /\.js$/,
-        include: Path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, '../src'),
         loader: 'babel-loader',
       },
       {

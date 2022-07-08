@@ -1,13 +1,18 @@
-const Path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import url from 'url';
 
-module.exports = {
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
   entry: {
-    main: Path.resolve(__dirname, '../src/scripts/index.js'),
+    main: path.resolve(__dirname, '../src/scripts/index.js'),
   },
   output: {
-    path: Path.join(__dirname, '../build'),
+    path: path.join(__dirname, '../build'),
     filename: 'js/[name].js',
     clean: true,
   },
@@ -24,15 +29,15 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [{ from: Path.resolve(__dirname, '../public'), to: 'public' }],
+      patterns: [{ from: path.resolve(__dirname, '../public'), to: 'public' }],
     }),
     new HtmlWebpackPlugin({
-      template: Path.resolve(__dirname, '../src/index.html'),
+      template: path.resolve(__dirname, '../src/index.html'),
     }),
   ],
   resolve: {
     alias: {
-      '~': Path.resolve(__dirname, '../src'),
+      '~': path.resolve(__dirname, '../src'),
     },
   },
   module: {
