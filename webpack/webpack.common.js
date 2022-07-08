@@ -1,5 +1,4 @@
 const Path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -10,6 +9,7 @@ module.exports = {
   output: {
     path: Path.join(__dirname, '../build'),
     filename: 'js/[name].js',
+    clean: true,
   },
   optimization: {
     splitChunks: {
@@ -18,7 +18,6 @@ module.exports = {
     },
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [{ from: Path.resolve(__dirname, '../public'), to: 'public' }],
     }),
