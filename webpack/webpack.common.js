@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: Path.resolve(__dirname, '../src/scripts/index.js'),
+    main: Path.resolve(__dirname, '../src/scripts/index.js'),
   },
   output: {
     path: Path.join(__dirname, '../build'),
@@ -14,7 +14,12 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
-      name: false,
+      cacheGroups: {
+        commons: {
+          name: 'commons',
+          chunks: 'initial',
+        },
+      },
     },
   },
   plugins: [
@@ -43,7 +48,7 @@ module.exports = {
       },
       {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
-        type: 'asset'
+        type: 'asset/resource',
       },
     ],
   },

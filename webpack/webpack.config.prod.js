@@ -10,7 +10,8 @@ module.exports = merge(common, {
   bail: true,
   output: {
     filename: 'js/[name].[chunkhash:8].js',
-    chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
+    chunkFilename: 'js/[name].[chunkhash:8].chunk[ext]',
+    assetModuleFilename: 'assets/[name]-[contenthash:8][ext]',
   },
   plugins: [
     new Webpack.DefinePlugin({
@@ -18,7 +19,7 @@ module.exports = merge(common, {
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[chunkhash:8].css',
-      chunkFilename: 'css/[name].[chunkhash:8].chunk.js',
+      chunkFilename: 'css/[name].[chunkhash:8].chunk[ext]',
     }),
   ],
   module: {
