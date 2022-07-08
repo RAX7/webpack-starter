@@ -1,6 +1,6 @@
 # Webpack Frontend Starterkit
 
-[![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
+[![Dependabot badge](https://flat.badgen.net/dependabot/RAX7/webpack-starter?icon=dependabot)](https://dependabot.com/)
 
 A lightweight foundation for your next webpack based frontend project.
 
@@ -8,18 +8,24 @@ A lightweight foundation for your next webpack based frontend project.
 
 ```sh
 npm install
+# or
+yarn
 ```
 
 ### Start Dev Server
 
 ```sh
 npm start
+# or
+yarn start
 ```
 
 ### Build Prod Version
 
 ```sh
 npm run build
+# or
+yarn build
 ```
 
 ### Features:
