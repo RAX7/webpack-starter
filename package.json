@@ -57,7 +57,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "core-js": "^3.25.2",
+    "core-js": "^3.25.3",
     "sass": "^1.54.9"
   },
   "packageManager": "yarn@3.2.3"
