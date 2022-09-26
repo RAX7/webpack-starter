@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "core-js": "^3.25.2",
-    "sass": "^1.54.9"
+    "sass": "^1.55.0"
   },
   "packageManager": "yarn@3.2.3"
 }
