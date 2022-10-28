@@ -4,25 +4,28 @@ A lightweight foundation for your next webpack based frontend project.
 
 ### Installation
 
-```sh
-npm install
-# or
+Install yarn:
+
+see: https://yarnpkg.com/getting-started/install
+
+```console
+corepack enable
+```
+
+Install dependencies:
+```console
 yarn
 ```
 
 ### Start Dev Server
 
-```sh
-npm start
-# or
+```console
 yarn start
 ```
 
 ### Build Prod Version
 
-```sh
-npm run build
-# or
+```console
 yarn build
 ```
 
@@ -34,4 +37,4 @@ yarn build
 - Autoprefixing of browserspecific CSS rules via [postcss](https://postcss.org/) and [postcss-preset-env](https://github.com/csstools/postcss-preset-env)
 - Style Linting via [stylelint](https://stylelint.io/)
 
-When you run `npm run build` we use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to move the css to a separate file. The css file gets included in the head of the `index.html`.
+When you run `yarn build` we use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to move the css to a separate file. The css file gets included in the head of the `index.html`.
